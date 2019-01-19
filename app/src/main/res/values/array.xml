@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="warning">
+        <item>停</item>
+        <item>禁止通行</item>
+    </string-array>
+
+    <string-array name="remind">
+        <item>慢</item>
+        <item>检</item>
+        <item>前方事故</item>
+        <item>雨天路滑</item>
+        <item>减速慢行</item>
+        <item>前方施工</item>
+        <item>雨雾冰雪</item>
+    </string-array>
+
+    <string-array name="speed">
+        <item>90</item>
+        <item>80</item>
+        <item>70</item>
+        <item>60</item>
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+        <item>10</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="icon">
+        <item>@drawable/left</item>
+        <item>@drawable/right</item>
+        <item>@drawable/right_left</item>
+        <item>@drawable/go_left</item>
+        <item>@drawable/go_right</item>
+        <item>@drawable/walk</item>
+        <item>@drawable/by_bike</item>
+        <item>@drawable/turn_left</item>
+        <item>@drawable/turn_right</item>
+        <item>@drawable/turn_back</item>
+        <item>@drawable/no_turn_left</item>
+        <item>@drawable/no_turn_right</item>
+        <item>@drawable/no_turn_back</item>
+        <item>@drawable/no_car</item>
+        <item>@drawable/no_noise</item>
+    </string-array>
+
+</resources>
