@@ -82,6 +82,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
             case R.id.start:
                 //Toast.makeText(this,"获取电量", Toast.LENGTH_SHORT).show();
+                new TcpConnnect(this, new Handler(), ConfigOfApp.IP, ConfigOfApp.PORT, ConfigOfApp.CHECK_BATTERY).start();
+                try {
+                    Thread.currentThread().sleep(2000);//阻断2秒
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                String battery = InitItemData.getInstance().getBattery();
+                if(battery.equals("获取失败")){
+                    item.setTitle(battery);
+                }else{
+                    item.setTitle(battery+"%");
+                }
                 break;
             case R.id.add:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

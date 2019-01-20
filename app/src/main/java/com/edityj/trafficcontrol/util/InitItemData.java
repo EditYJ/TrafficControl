@@ -16,9 +16,11 @@ public class InitItemData {
     private InitItemData initItemData;  //修改后的数据
 
     private List<ITEMDATA> ItemDatas;
+    private String Battery;
 
     private InitItemData(){
         this.ItemDatas = new ArrayList<>();
+        this.Battery="获取失败";
     }
 
     private static class SingletonInstance {
@@ -40,5 +42,13 @@ public class InitItemData {
 
     public void setInitItemDatas(List<ITEMDATA> ItemDatas) {
         this.ItemDatas = ItemDatas;
+    }
+
+    public String getBattery() {
+        return Battery;
+    }
+
+    public void setBattery(String battery) {
+        Battery = battery;
     }
 }
