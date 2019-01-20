@@ -10,6 +10,10 @@ import com.edityj.trafficcontrol.util.InitItemData;
 
 
 public class StartApplication extends Application {
+    public static TypedArray icon;
+    public static String[] speed;
+    public static String[] warning;
+    public static String[] remind;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -18,10 +22,10 @@ public class StartApplication extends Application {
     }
     private void init(){
         int i;
-        TypedArray icon = this.getResources().obtainTypedArray(R.array.icon);
-        String[] speed = this.getResources().getStringArray(R.array.speed);
-        String[] warning = this.getResources().getStringArray(R.array.warning);
-        String[] remind = this.getResources().getStringArray(R.array.remind);
+        icon = this.getResources().obtainTypedArray(R.array.icon);
+        speed = this.getResources().getStringArray(R.array.speed);
+        warning = this.getResources().getStringArray(R.array.warning);
+        remind = this.getResources().getStringArray(R.array.remind);
         for(i=0;i<warning.length;i++){
             ITEMDATA itemdata=new ITEMDATA();
             itemdata.setDanger(warning[i]);
@@ -48,6 +52,7 @@ public class StartApplication extends Application {
             Log.e("执行次数：", String.valueOf(i));
             Log.e("资源id：", String.valueOf(icon.getResourceId(i,0)));
             itemdata.setIcon(icon.getResourceId(i,0));
+            itemdata.setIconID(i);
             InitItemData.getInstance().getInitItemDatas().add(itemdata);
             InitItemData.getStartInstance().getInitItemDatas().add(itemdata);
         }

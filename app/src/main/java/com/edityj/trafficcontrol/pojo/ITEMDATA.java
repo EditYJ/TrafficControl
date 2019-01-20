@@ -7,6 +7,7 @@ public class ITEMDATA {
     private int icon;
     private int play;
     private int delete;
+    private int iconID;
 
     public ITEMDATA() {
         this.danger = null;
@@ -15,15 +16,7 @@ public class ITEMDATA {
         this.icon = 0;
         this.play = 0;
         this.delete = 0;
-    }
-
-    public void clear(){
-        this.danger = null;
-        this.remind = null;
-        this.speed = null;
-        this.icon = 0;
-        this.play = 0;
-        this.delete = 0;
+        this.iconID=0;
     }
 
     public String getDanger() {
@@ -72,5 +65,13 @@ public class ITEMDATA {
 
     public void setDelete(int delete) {
         this.delete = delete;
+    }
+
+    public int getIconID() {
+        return iconID;
+    }
+
+    public void setIconID(int iconID) {
+        this.iconID = iconID;
     }
 }

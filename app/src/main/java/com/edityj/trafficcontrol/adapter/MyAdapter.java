@@ -53,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 //        Log.e("读取数据d:", data.get(i).getDanger());
 //        Log.e("读取数据r:", data.get(i).getRemind());
 //        Log.e("读取数据s:", data.get(i).getSpeed());
-//RecyclerView禁止复用
+        //RecyclerView禁止复用
         viewHolder.setIsRecyclable(false);
         if(data.get(i).getDanger()!=null){
             viewHolder.textSpeed.setVisibility(View.GONE);
@@ -77,7 +77,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             viewHolder.textSpeed.setText(data.get(i).getSpeed());
         }
 
-
+        //绑定图片数据
         if(data.get(i).getIcon()!=0){
             viewHolder.textRemind.setVisibility(View.GONE);
             viewHolder.textDanger.setVisibility(View.GONE);
@@ -87,10 +87,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             viewHolder.imTrafficIcon.setImageResource(data.get(i).getIcon());
         }
         if(data.get(i).getPlay()!=0){
+            viewHolder.imIsTrue.setVisibility(View.VISIBLE);
             viewHolder.imIsTrue.setImageResource(data.get(i).getPlay());
+        }else{
+            viewHolder.imIsTrue.setVisibility(View.GONE);
         }
         if(data.get(i).getDelete()!=0){
+            viewHolder.imIsDelete.setVisibility(View.VISIBLE);
             viewHolder.imIsDelete.setImageResource(data.get(i).getDelete());
+        }else{
+            viewHolder.imIsDelete.setVisibility(View.GONE);
         }
 //        if(i<data.getWarning().size()){
 //            viewHolder.textTrafficCode.setText(data.getWarning().get(i));
@@ -140,7 +146,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
             relativeLayout = (RelativeLayout)itemView;
             relativeLayout.setOnClickListener(this);
-            //imIsDelete.setOnClickListener(this);
+            imIsDelete.setOnClickListener(this);
         }
 
         @Override

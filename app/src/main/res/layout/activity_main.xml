@@ -10,7 +10,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-
+            android:id="@+id/screen_one"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -19,23 +19,26 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/img_screen_one"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
                 android:layout_gravity="center" />
 
             <TextView
-                android:id="@+id/screen_one"
+                android:id="@+id/text_screen_one"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:visibility="gone"
                 android:text="@string/clear" />
         </LinearLayout>
 
         <LinearLayout
-
+            android:id="@+id/screen_two"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -44,18 +47,21 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/img_screen_two"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
                 android:layout_gravity="center" />
 
             <TextView
-                android:id="@+id/screen_two"
+                android:id="@+id/text_screen_two"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:visibility="gone"
                 android:text="@string/clear" />
         </LinearLayout>
 
@@ -75,16 +81,19 @@
         android:layout_height="60dp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/b_reset"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/reset"/>
         <Button
+            android:id="@+id/b_clear"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/clear"/>
         <Button
+            android:id="@+id/b_send"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
