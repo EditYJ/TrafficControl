@@ -8,11 +8,13 @@ public final class ConfigOfApp {
     public final static String REGEX="^[0-9].*$";
 
     public final static String SEND_SCREEN_HEAD="2:DISPLAY:";
+    public final static String CHECK_BATTERY="1:BATTERY";
+    public final static String CHANGE_LIGHT="3:BACKLIGHT:";
     public final static String SEND_SCREEN_POINT=",";
     public final static String SEND_IMG_HEAD="t";
     public final static String SEND_WARNING_MSG_HEAD="$$";
     public final static String SEND_WARNING_MSG_END=",,";
-    public final static String CHECK_BATTERY="1:BATTERY";
+
 
 
 

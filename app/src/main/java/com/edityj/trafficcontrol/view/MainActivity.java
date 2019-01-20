@@ -148,6 +148,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 myAdapter.notifyDataSetChanged();
                 //Toast.makeText(this,"删除", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.change_light:
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+                builder2.setIcon(R.drawable.add_icon);
+                builder2.setTitle("输入亮度值(1 ~ 10)");
+                //    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
+                View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.light_dialog, null);
+                //    设置我们自己定义的布局文件作为弹出框的Content
+                builder2.setView(view2);
+
+                final EditText dialog_edit2 = (EditText) view2.findViewById(R.id.light_dialog_edit);
+
+                builder2.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(Integer.valueOf(dialog_edit2.getText().toString().trim())<1 || Integer.valueOf(dialog_edit2.getText().toString().trim())>10){
+                            Toast.makeText(MainActivity.this, "输入有误，请重新输入！", Toast.LENGTH_SHORT).show();
+                        }else{
+                            new TcpConnnect(MainActivity.this, new Handler(), ConfigOfApp.IP, ConfigOfApp.PORT, ConfigOfApp.CHANGE_LIGHT+dialog_edit2.getText().toString().trim()).start();
+                        }
+                    }
+                });
+                builder2.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder2.show();
         }
         return false;
     }

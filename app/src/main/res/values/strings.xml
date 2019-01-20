@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrafficControl</string>
+    <string name="app_name">LED控制器</string>
     <string name="test_code">测试用字</string>
     <string name="reset">重置</string>
     <string name="clear">清空</string>
@@ -8,4 +8,6 @@
     <string name="delete">删除</string>
     <string name="add">添加</string>
     <string name="warning_content">警示内容</string>
+    <string name="changeli">调整亮度</string>
+    <string name="light_value">输入亮度的值(1~10)</string>
 </resources>
