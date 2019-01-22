@@ -1,6 +1,8 @@
 package com.edityj.trafficcontrol.pojo;
 
-public class ITEMDATA {
+import java.io.Serializable;
+
+public class ITEMDATA implements Serializable {
     private String danger;
     private String remind;
     private String speed;

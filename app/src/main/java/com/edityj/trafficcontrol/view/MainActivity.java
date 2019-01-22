@@ -1,6 +1,7 @@
 package com.edityj.trafficcontrol.view;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.edityj.trafficcontrol.R;
 import com.edityj.trafficcontrol.adapter.MyAdapter;
 import com.edityj.trafficcontrol.application.StartApplication;
@@ -36,6 +38,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editors;
 
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
@@ -66,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         data = InitItemData.getStartInstance().getInitItemDatas();
+        sharedPreferences = getSharedPreferences(ConfigOfApp.APP_SAVEFILE_NAME,0);
+        editors=sharedPreferences.edit();
         Log.e("m读取数据d:", data.toString());
         init();
     }
@@ -116,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             temp.setDelete(R.drawable.delete);
                         }
                         data.add(2, temp);
+                        //存储数据
+                        String json = JSON.toJSONString(data);
+                        editors.putString("data", json);
+                        editors.commit();
                         //此处data指针不能变，变化的话列表不能更新
 //                        data.clear();
 //                        data.addAll(InitItemData.getInstance().getInitItemDatas());
@@ -145,6 +156,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     isDeleteMode = false;
                 }
+                //存储数据
+                String json = JSON.toJSONString(data);
+                editors.putString("data", json);
+                editors.commit();
                 myAdapter.notifyDataSetChanged();
                 //Toast.makeText(this,"删除", Toast.LENGTH_SHORT).show();
                 break;
@@ -187,6 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+
     private void init() {
         screenOne = findViewById(R.id.screen_one);
         screenTwo = findViewById(R.id.screen_two);
@@ -220,6 +236,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.im_delete:
                         data.get(position).setDelete(0);
                         data.remove(position);
+
+                        String json = JSON.toJSONString(data);
+                        editors.putString("data", json);
+                        editors.commit();
+
                         myAdapter.notifyDataSetChanged();
                         break;
                     case R.id.list_item_view:
@@ -323,6 +344,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 data.clear();
                 data.addAll(InitItemData.getInstance().getInitItemDatas());
+                //存储数据
+                String json = JSON.toJSONString(data);
+                editors.putString("data", json);
+                editors.commit();
+
                 myAdapter.notifyDataSetChanged();
                 textScreenTwo.setText(null);
                 textScreenOne.setText(null);
