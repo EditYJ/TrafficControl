@@ -2,18 +2,18 @@
 <resources>
 
     <string-array name="warning">
-        <item>停</item>
-        <item>禁止通行</item>
+        <item>Stop</item>
+        <item>No Passing</item>
     </string-array>
 
     <string-array name="remind">
-        <item>慢</item>
-        <item>检</item>
-        <item>前方事故</item>
-        <item>雨天路滑</item>
-        <item>减速慢行</item>
-        <item>前方施工</item>
-        <item>雨雾冰雪</item>
+        <item>Slow</item>
+        <item>Check</item>
+        <item>Front Accident</item>
+        <item>Rainy Slippery</item>
+        <item>Slow Down</item>
+        <item>Forward Construction</item>
+        <item>Snow And Ice</item>
     </string-array>
 
     <string-array name="speed">
